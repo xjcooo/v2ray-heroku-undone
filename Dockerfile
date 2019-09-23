@@ -7,4 +7,5 @@ RUN apt update -y \
 ADD entrypoint.sh /entrypoint.sh
 ADD v2ray-linux-64.zip /v2raybin/v2ray-linux-64.zip
 RUN chmod +x /entrypoint.sh
+RUN unzip /v2raybin/v2ray-linux-64.zip
 CMD /entrypoint.sh
