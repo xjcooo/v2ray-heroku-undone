@@ -19,6 +19,7 @@ rm -rf /etc/localtime
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 date -R
 
+
 SYS_Bit="$(getconf LONG_BIT)"
 [[ "$SYS_Bit" == '32' ]] && BitVer='_linux_386.tar.gz'
 [[ "$SYS_Bit" == '64' ]] && BitVer='_linux_amd64.tar.gz'
