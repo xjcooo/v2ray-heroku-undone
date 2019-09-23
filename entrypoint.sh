@@ -38,7 +38,7 @@ cd /v2raybin
 ls
 unzip v2ray-linux-64.zip
 ls
-chmod +x /v2raybin/v2ray-linux-64/*
+chmod +x /v2raybin/*
 
 C_VER=`wget -qO- "https://api.github.com/repos/mholt/caddy/releases/latest" | grep 'tag_name' | cut -d\" -f4`
 mkdir /caddybin
@@ -59,7 +59,7 @@ tar xvf demo.tar.gz
 rm -rf demo.tar.gz
 
 #cat <<-EOF > /v2raybin/v2ray-$V_VER-linux-$SYS_Bit/config.json
-cat <<-EOF > /v2raybin/v2ray-linux-64/config.json
+cat <<-EOF > /v2raybin/config.json
 {
     "log":{
         "loglevel":"warning"
@@ -132,7 +132,7 @@ else
 fi
 
 #cd /v2raybin/v2ray-$V_VER-linux-$SYS_Bit
-cd /v2raybin/v2ray-linux-64
+cd /v2raybin
 ./v2ray &
 cd /caddybin
 ./caddy -conf="Caddyfile"
