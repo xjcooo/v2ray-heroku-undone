@@ -37,13 +37,17 @@ cd /v2raybin
 #chmod +x /v2raybin/v2ray-$V_VER-linux-$SYS_Bit/*
 ls
 unzip v2ray-linux-64.zip
+ls
 chmod +x /v2raybin/v2ray-linux-64/*
 
 C_VER=`wget -qO- "https://api.github.com/repos/mholt/caddy/releases/latest" | grep 'tag_name' | cut -d\" -f4`
 mkdir /caddybin
+ls
 cd /caddybin
 wget --no-check-certificate -qO 'caddy.tar.gz' "https://github.com/mholt/caddy/releases/download/$C_VER/caddy_$C_VER$BitVer"
+ls
 tar xvf caddy.tar.gz
+ls
 rm -rf caddy.tar.gz
 chmod +x caddy
 cd /root
