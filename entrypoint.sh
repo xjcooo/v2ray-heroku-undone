@@ -47,7 +47,7 @@ cd /root
 mkdir /wwwroot
 cd /wwwroot
 
-wget --no-check-certificate -qO 'demo.tar.gz' "https://github.com/ki8852/v2ray-heroku-undone/raw/master/demo.tar.gz"
+wget --no-check-certificate -qO 'demo.tar.gz' "https://github.com/zxclown/v2ray-heroku-undone/raw/master/demo.tar.gz"
 tar xvf demo.tar.gz
 rm -rf demo.tar.gz
 
@@ -97,19 +97,19 @@ http://0.0.0.0:${PORT}
 }
 EOF
 
-cat <<-EOF > /v2raybin/vmess.json 
+cat <<-EOF > /v2raybin/vmess.json
 {
     "v": "2",
     "ps": "${AppName}.herokuapp.com",
     "add": "${AppName}.herokuapp.com",
     "port": "443",
     "id": "${UUID}",
-    "aid": "${AlterID}",			
-    "net": "ws",			
-    "type": "none",			
-    "host": "",			
-    "path": "${V2_Path}",	
-    "tls": "tls"			
+    "aid": "${AlterID}",
+    "net": "ws",
+    "type": "none",
+    "host": "",
+    "path": "${V2_Path}",
+    "tls": "tls"
 }
 EOF
 
@@ -117,8 +117,8 @@ if [ "$AppName" = "no" ]; then
   echo "不生成二维码"
 else
   mkdir /wwwroot/$V2_QR_Path
-  vmess="vmess://$(cat /v2raybin/vmess.json | base64 -w 0)" 
-  Linkbase64=$(echo -n "${vmess}" | tr -d '\n' | base64 -w 0) 
+  vmess="vmess://$(cat /v2raybin/vmess.json | base64 -w 0)"
+  Linkbase64=$(echo -n "${vmess}" | tr -d '\n' | base64 -w 0)
   echo "${Linkbase64}" | tr -d '\n' > /wwwroot/$V2_QR_Path/index.html
   echo -n "${vmess}" | qrencode -s 6 -o /wwwroot/$V2_QR_Path/v2.png
 fi
